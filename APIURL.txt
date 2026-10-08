@@ -1,0 +1,51 @@
+Create User API====================
+curl --location 'http://localhost:3000/api/user' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "Alex",
+    "email": "alex@gmail.com"
+}'
+
+
+
+Create New Wallet for new User =============
+curl --location 'http://localhost:3000/api/wallet' \
+--header 'Content-Type: application/json' \
+--data '{
+    "user_id": 3,
+    "balance": 5000,
+    "currency": "INR"
+}'
+
+
+Add money in wallet ===================
+curl --location 'http://localhost:3000/api/wallet' \
+--header 'Content-Type: application/json' \
+--data '{
+    "user_id": 3,
+    "balance": 5000,
+    "currency": "INR"
+}'
+
+
+Transfer Money ========================
+curl --location 'http://localhost:3000/api/wallet/transfer' \
+--header 'Content-Type: application/json' \
+--data '{
+    "sender_id": 1,
+    "reciever_id": 2,
+    "amount": 10,
+    "description": "test"
+}'
+
+
+Get Wallet Balance =================
+curl --location 'http://localhost:3000/api/wallet/balance?wallet_id=1'
+
+
+Get Transaction ==================
+curl --location 'http://localhost:3000/api/wallet/transactions?user_id=1'
+
+
+Get Balance Summary======================
+curl --location 'http://localhost:3000/api/wallet/summary?wallet_id=1'
